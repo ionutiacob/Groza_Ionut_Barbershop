@@ -9,11 +9,13 @@ namespace Groza_Ionut_Barbershop.Models
         [Required(ErrorMessage = "First name is required")]
         [RegularExpression(@"^[A-Z]+[a-zA-Z\s-]*$", ErrorMessage = "Firstname should start with uppercase character")]
         [StringLength(100, ErrorMessage = "Maximum 100 characters")]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Last name is required")]
         [RegularExpression(@"^[A-Z]+[a-zA-Z\s-]*$", ErrorMessage = "Last name should start with uppercase character")]
         [StringLength(100, ErrorMessage = "Maximum 100 characters")]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         public string FullName => $"{FirstName} {LastName}";

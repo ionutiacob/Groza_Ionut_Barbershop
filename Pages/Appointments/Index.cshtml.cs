@@ -28,7 +28,8 @@ namespace Groza_Ionut_Barbershop.Pages.Appointments
                 Appointment = await _context.Appointment
                 .Include(a => a.Barber)
                 .Include(a => a.Customer)
-                .Include(a => a.Service).ToListAsync();
+                .Include(a => a.Service)
+                .ToListAsync();
             }
         }
     }

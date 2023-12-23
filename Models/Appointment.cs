@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Groza_Ionut_Barbershop.Models
 {
@@ -7,7 +8,7 @@ namespace Groza_Ionut_Barbershop.Models
         public int AppointmentId { get; set; }
 
         [Required]
-        [DataType(DataType.DateTime)]
+        [Display(Name = "Appointment Date")]
         public DateTime AppointmentDate { get; set; }
 
         public int CustomerId { get; set; }
