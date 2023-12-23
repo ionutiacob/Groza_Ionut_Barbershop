@@ -1,7 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Groza_Ionut_Barbershop.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<Groza_Ionut_BarbershopContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Groza_Ionut_BarbershopContext") ?? throw new InvalidOperationException("Connection string 'Groza_Ionut_BarbershopContext' not found.")));
 
 var app = builder.Build();
 
