@@ -21,8 +21,8 @@ namespace Groza_Ionut_Barbershop.Pages.Appointments
 
         public IActionResult OnGet()
         {
-        ViewData["BarberId"] = new SelectList(_context.Set<Barber>(), "BarberId", "FirstName");
-        ViewData["CustomerId"] = new SelectList(_context.Set<Customer>(), "CustomerId", "FirstName");
+        ViewData["BarberId"] = new SelectList(_context.Set<Barber>(), "BarberId", "FullName");
+        ViewData["CustomerId"] = new SelectList(_context.Set<Customer>(), "CustomerId", "FullName");
         ViewData["ServiceId"] = new SelectList(_context.Set<Service>(), "ServiceId", "ServiceName");
             return Page();
         }

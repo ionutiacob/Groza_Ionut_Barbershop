@@ -2,32 +2,31 @@
 @model Groza_Ionut_Barbershop.Pages.Appointments.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create appointment";
 }
 
-<h1>Create</h1>
+<h1>Create Appointment</h1>
 
-<h4>Appointment</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Appointment.AppointmentDate" class="control-label"></label>
+                <label asp-for="Appointment.AppointmentDate" class="control-label">Appointment Date</label>
                 <input asp-for="Appointment.AppointmentDate" class="form-control" />
                 <span asp-validation-for="Appointment.AppointmentDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Appointment.CustomerId" class="control-label"></label>
+                <label asp-for="Appointment.CustomerId" class="control-label">Select Customer</label>
                 <select asp-for="Appointment.CustomerId" class ="form-control" asp-items="ViewBag.CustomerId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Appointment.BarberId" class="control-label"></label>
+                <label asp-for="Appointment.BarberId" class="control-label">Select Barber</label>
                 <select asp-for="Appointment.BarberId" class ="form-control" asp-items="ViewBag.BarberId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Appointment.ServiceId" class="control-label"></label>
+                <label asp-for="Appointment.ServiceId" class="control-label">Select Service</label>
                 <select asp-for="Appointment.ServiceId" class ="form-control" asp-items="ViewBag.ServiceId"></select>
             </div>
             <div class="form-group">
