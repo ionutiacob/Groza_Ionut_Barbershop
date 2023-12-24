@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Groza_Ionut_Barbershop.Migrations
 {
     [DbContext(typeof(Groza_Ionut_BarbershopContext))]
-    [Migration("20231223180321_InitialCreate")]
+    [Migration("20231224140341_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

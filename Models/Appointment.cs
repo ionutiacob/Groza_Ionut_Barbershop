@@ -12,14 +12,14 @@ namespace Groza_Ionut_Barbershop.Models
         public DateTime AppointmentDate { get; set; }
 
         public int CustomerId { get; set; }
-        public Customer Customer { get; set; }
+        public Customer? Customer { get; set; }
 
         public int BarberId { get; set; }
-        public Barber Barber { get; set; }
+        public Barber? Barber { get; set; }
 
         public int ServiceId { get; set; }
-        public Service Service { get; set; }
+        public Service? Service { get; set; }
 
-        public string Notes { get; set; }
+        public string? Notes { get; set; }
     }
 }

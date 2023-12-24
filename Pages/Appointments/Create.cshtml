@@ -1,4 +1,5 @@
 ﻿@page
+
 @model Groza_Ionut_Barbershop.Pages.Appointments.CreateModel
 
 @{
@@ -19,15 +20,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="Appointment.CustomerId" class="control-label">Select Customer</label>
-                <select asp-for="Appointment.CustomerId" class ="form-control" asp-items="ViewBag.CustomerId"></select>
+                <select asp-for="Appointment.CustomerId" class="form-control" asp-items="ViewBag.CustomerId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Appointment.BarberId" class="control-label">Select Barber</label>
-                <select asp-for="Appointment.BarberId" class ="form-control" asp-items="ViewBag.BarberId"></select>
+                <select asp-for="Appointment.BarberId" class="form-control" asp-items="ViewBag.BarberId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Appointment.ServiceId" class="control-label">Select Service</label>
-                <select asp-for="Appointment.ServiceId" class ="form-control" asp-items="ViewBag.ServiceId"></select>
+                <select asp-for="Appointment.ServiceId" class="form-control" asp-items="ViewBag.ServiceId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Appointment.Notes" class="control-label"></label>
@@ -46,5 +47,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

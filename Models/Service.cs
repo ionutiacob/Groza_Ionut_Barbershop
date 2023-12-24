@@ -12,6 +12,7 @@ namespace Groza_Ionut_Barbershop.Models
 
         [Column(TypeName = "decimal(6, 2)")]
         [Range(0.01, 500)]
+        [Display(Name = "Price (RON)")]
         public decimal Price { get; set; }
     }
 }
