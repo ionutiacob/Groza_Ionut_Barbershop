@@ -21,14 +21,27 @@ namespace Groza_Ionut_Barbershop.Pages.Appointments
 
         public IList<Appointment> Appointment { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public string CurrentFilter { get; set; }
+        public async Task OnGetAsync(string searchString)
         {
+            CurrentFilter = searchString;
+
             if (_context.Appointment != null)
             {
                 Appointment = await _context.Appointment
                 .Include(a => a.Barber)
                 .Include(a => a.Customer)
                 .Include(a => a.Service).ToListAsync();
+            }
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Appointment = Appointment.Where(s =>
+                    s.Barber.FirstName.Contains(searchString, StringComparison.OrdinalIgnoreCase) ||
+                    s.Barber.LastName.Contains(searchString, StringComparison.OrdinalIgnoreCase) ||
+                    s.Customer.FirstName.Contains(searchString, StringComparison.OrdinalIgnoreCase) ||
+                    s.Customer.LastName.Contains(searchString, StringComparison.OrdinalIgnoreCase)
+                ).ToList();
             }
         }
     }
