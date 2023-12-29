@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Groza_Ionut_Barbershop.Migrations
 {
     [DbContext(typeof(Groza_Ionut_BarbershopContext))]
-    [Migration("20231224140341_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20231229114407_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,7 +42,6 @@ namespace Groza_Ionut_Barbershop.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Notes")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ServiceId")
@@ -98,6 +97,9 @@ namespace Groza_Ionut_Barbershop.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CustomerId"), 1L, 1);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()

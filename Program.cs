@@ -4,6 +4,12 @@ using Groza_Ionut_Barbershop.Data;
 using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminPolicy", policy =>
+   policy.RequireRole("Admin"));
+});
+
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<Groza_Ionut_BarbershopContext>(options =>
@@ -13,8 +19,17 @@ builder.Services.AddDbContext<LibraryIdentityContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("Groza_Ionut_BarbershopContext") ?? throw new InvalidOperationException("Connectionstring 'Groza_Ionut_BarbershopContext' not found.")));
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
-options.SignIn.RequireConfirmedAccount = true)
+options.SignIn.RequireConfirmedAccount = false)
+ .AddRoles<IdentityRole>()
  .AddEntityFrameworkStores<LibraryIdentityContext>();
+
+builder.Services.AddRazorPages(options =>
+{
+    options.Conventions.AuthorizeFolder("/Appointments");
+    options.Conventions.AuthorizeFolder("/Barbers", "AdminPolicy");
+    options.Conventions.AuthorizeFolder("/Customers", "AdminPolicy");
+    options.Conventions.AuthorizeFolder("/Services", "AdminPolicy");
+});
 
 var app = builder.Build();
 
